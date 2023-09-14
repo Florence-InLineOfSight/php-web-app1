@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'docker-deployment'
+        label 'php_agent'
     }
 
     stages {
