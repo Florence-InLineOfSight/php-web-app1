@@ -2,6 +2,7 @@
 version: "2"
 services:
     www:
+        container_name: php-web-app
         build: .
         ports:
             - "80:80"
@@ -12,6 +13,7 @@ services:
         networks:
             - default
     db:
+        container_name: database
         image: mysql:5.7.28
         ports:
             - "3306:3306"
@@ -26,6 +28,7 @@ services:
         networks:
             - default
     phpmyadmin:
+        container_name: database_ui
         image: phpmyadmin/phpmyadmin
         links:
             - db:db
