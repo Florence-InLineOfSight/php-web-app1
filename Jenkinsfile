@@ -5,9 +5,6 @@ pipeline{
 
     environment {
         IMAGE_TAG = "Default"
-        // CONTAINER_NAME = "BELIEVE"
-        // APP_PORT = 8080             // Port on server       APP_PORT:CONTAINER_PORT
-        // CONTAINER_PORT = 8080       // Port in container
     }
 
     stages {
@@ -15,7 +12,7 @@ pipeline{
             steps {
                 sh "docker-compose build"
                 sh "docker-compose up -d"
-                sh "docker tag php-web-app1_www:latest florenceomoruyi/php-web-app1:${env.IMAGE_TAG}"
+                sh "docker tag php-web-app1:newest florenceomoruyi/php-web-app1:${env.IMAGE_TAG}"
                 sh "docker push florenceomoruyi/php-web-app1:${env.IMAGE_TAG}"
             }
         }
