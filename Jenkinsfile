@@ -8,10 +8,15 @@ pipeline{
     }
 
     stages {
-        stage("Backup and Deploy") {
+        stage("Deploy in Container") {
             steps {
                 sh "docker-compose build"
                 sh "docker-compose up -d"
+            }
+        }
+        
+        stage("Backup to DockerHub") {
+            steps {
                 sh "docker tag php-web-app1:newest florenceomoruyi/php-web-app1:${env.IMAGE_TAG}"
                 sh "docker push florenceomoruyi/php-web-app1:${env.IMAGE_TAG}"
             }
