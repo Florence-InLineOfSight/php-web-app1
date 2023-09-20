@@ -1,5 +1,4 @@
----
-version: "2"
+version: '3'
 services:
     php-web-app1:
         container_name: php-web-app1
