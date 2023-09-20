@@ -1,9 +1,12 @@
 ---
 version: "2"
 services:
-    www:
-        container_name: php-web-app
-        build: .
+    php-web-app1:
+        container_name: php-web-app1
+        build:
+            context: .
+            dockerfile: Dockerfile
+            image: php-web-app1:newest
         ports:
             - "80:80"
         volumes:
