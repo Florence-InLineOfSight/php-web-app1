@@ -10,8 +10,8 @@ pipeline{
     stages {
         stage("Deploy in Container") {
             steps {
-                sh "docker-compose build -f docker-compose-php"
-                sh "docker-compose up -d -f docker-compose-php --remove-orphans"
+                sh "docker-compose -f docker-compose-php build"
+                sh "docker-compose -f docker-compose-php up -d --remove-orphans"
             }
         }
         
